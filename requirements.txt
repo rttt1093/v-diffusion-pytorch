@@ -6,3 +6,4 @@ torch
 torchvision
 tqdm
 clip-anytorch
+-e git+https://github.com/openai/CLIP.git#egg=clip

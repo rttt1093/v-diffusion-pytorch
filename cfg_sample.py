@@ -14,7 +14,7 @@ from torchvision import transforms
 from torchvision.transforms import functional as TF
 from tqdm import trange
 
-from CLIP import clip
+import clip
 from diffusion import get_model, get_models, sampling, utils
 
 MODULE_DIR = Path(__file__).resolve().parent
