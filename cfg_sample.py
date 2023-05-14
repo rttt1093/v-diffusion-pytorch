@@ -15,7 +15,7 @@ from torchvision.transforms import functional as TF
 from tqdm import trange
 
 import clip
-from diffusion import get_model, get_models, sampling, utils
+from diffusion import get_model, models, sampling, utils
 
 MODULE_DIR = Path(__file__).resolve().parent
 
@@ -56,7 +56,7 @@ def main():
     p.add_argument('--method', type=str, default='plms',
                    choices=['ddpm', 'ddim', 'prk', 'plms', 'pie', 'plms2', 'iplms'],
                    help='the sampling method to use')
-    p.add_argument('--model', type=str, default='cc12m_1_cfg', choices=['cc12m_1_cfg'],
+    p.add_argument('--model', type=str, default='cc12m_1_cfg', choices=models.get_models(),
                    help='the model to use')
     p.add_argument('-n', type=int, default=1,
                    help='the number of images to sample')

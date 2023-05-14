@@ -144,7 +144,7 @@ class Danbooru128Model(nn.Module):
             ResConvBlock(cs[0], cs[0], 3),
         )
 
-    def forward(self, input, t):
+    def forward(self, input, t, clip_embed):
         log_snr = utils.alpha_sigma_to_log_snr(*utils.t_to_alpha_sigma(t))
         timestep_embed = expand_to_planes(self.timestep_embed(log_snr[:, None]), input.shape)
         return self.net(torch.cat([input, timestep_embed], dim=1))
